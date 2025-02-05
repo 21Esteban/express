@@ -1,7 +1,8 @@
 import { Router } from "express";
 import tournamentsController from "../controller/tournament.controller.js";
-import { createTournamentSchema, updateTournamentSchema } from "../validation/tournament.schema.js";
+import { createTournamentSchema, updateTournamentSchema, submitScoreSchema } from "../validation/tournament.schema.js";
 import validateSchema from "../../middleware/validateSchema.js";
+
 
 const route = Router();
 
@@ -24,9 +25,10 @@ route.put("/:id", validateSchema(updateTournamentSchema), tournamentsController.
 route.post("/:id/register", tournamentsController.registerChef);
 
 // ** ruta para registrar el score de un chef en un torneo 
-route.post("/:id/submit", tournamentsController.submitScore);
+route.post("/:id/submit", validateSchema(submitScoreSchema),tournamentsController.submitScore);
 
 // ** ruta para eliminar un torneo
 route.delete("/:id", tournamentsController.deleteTournaments);
 
 export default route;
+

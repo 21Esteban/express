@@ -181,12 +181,6 @@ tournamentServices.submitScore = async (req, res) => {
 
     const { chefId, score } = req.body;
 
-    if (score < 0 || score > 100) {
-      return res
-        .status(400)
-        .send({ ok: false, message: "Score must be between 0 and 100" });
-    }
-
     const chefIsInTournament = tournamentFound.chefs.find(
       (chef) => chef._id == chefId
     );
