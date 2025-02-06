@@ -61,6 +61,7 @@ A continuación se detallan los endpoints disponibles y cómo utilizarlos:
 
 - **Endpoint:** `GET http://localhost:4000/api/chef`
 - **Descripción:** Devuelve la lista de todos los chefs registrados en la base de datos.
+
   **Ejemplo de respuesta:**
 
   ```json
@@ -95,8 +96,8 @@ A continuación se detallan los endpoints disponibles y cómo utilizarlos:
 ### 3. Actualizar Chef
 
 - **Endpoint:** `PUT http://localhost:4000/api/chef/:id`
-- **Descripción:** Registra un nuevo chef en el sistema.
-- **Parámetro URL:** -> id: Identificador del chef a actualizar.
+- **Descripción:** Actualiza un chef en el sistema.
+- **Parámetro URL:** -> id: Identificador del chef a Modificar.
 - **Body de la solicitud:**
 
  ```json
@@ -110,8 +111,8 @@ A continuación se detallan los endpoints disponibles y cómo utilizarlos:
 ### 4. Eliminar Chef
 
 - **Endpoint:** `DELETE http://localhost:4000/api/chef/:id`
-- **Descripción:** Registra un nuevo chef en el sistema.
-- **Parámetro URL:** -> id: Identificador del chef a actualizar.
+- **Descripción:** Elimina un chef en el sistema.
+- **Parámetro URL:** -> id: Identificador del chef a eliminar.
 - **Body de la solicitud:**
 
  ```json
@@ -127,7 +128,7 @@ A continuación se detallan los endpoints disponibles y cómo utilizarlos:
 
 #### Esta sección documenta los endpoints disponibles para gestionar tournaments.  
 
-**Base URL:** `http://localhost:4000/api/tournaments`
+- **Base URL:** `http://localhost:4000/api/tournaments`
 
 
 ### 1. Obtener Todos los Torneos
@@ -158,11 +159,10 @@ A continuación se detallan los endpoints disponibles y cómo utilizarlos:
 - **Endpoint:** /api/tournaments/:id 
 - **Descripción:** Obtiene los detalles de un torneo específico por su ID.
 - **Parámetro URL:** -> id: Identificador del torneo.
+
 **Ejemplo de solicitud:**
 
 ```bash
-Copy
-Edit
 `GET http://localhost:4000/api/tournaments/634aa0128f1b2c3d4e5f6792`
 ```
 
@@ -187,6 +187,7 @@ Edit
 - **Endpoint:** /api/tournaments/:id/ranking
 - **Descripción:** Obtiene el ranking de chefs en un torneo, ordenado de mayor a menor puntuación.
 - **Parámetro URL:** -> id: Identificador del torneo.
+
 **Ejemplo de solicitud:**
 
 ```bash
@@ -255,9 +256,8 @@ Edit
 - **Método:** PUT
 - **Endpoint:** /api/tournaments/:id
 - **Descripción:** Actualiza los detalles de un torneo (nombre, ubicación y cantidad máxima de chefs).
-Validación: Se utiliza validateSchema(updateTournamentSchema) para validar el body de la solicitud.
-   - **Parámetros:**
- - id: Identificador del torneo.
+- **Validación:** Se utiliza validateSchema(updateTournamentSchema) para validar el body de la solicitud.
+   - **Parámetros:** - id: Identificador del torneo.
   
 **Body de la solicitud:**
 
@@ -296,8 +296,7 @@ Validación: Se utiliza validateSchema(updateTournamentSchema) para validar el b
 - **Método:** POST
 - **Endpoint:** /api/tournaments/:id/register
 - **Descripción:** Inscribe a un chef en un torneo.
-   - **Parámetros:** 
-      - id: Identificador del torneo.
+   - **Parámetros:** - id: Identificador del torneo.
 
 **Body de la solicitud:**
 
@@ -339,8 +338,7 @@ Validación: Se utiliza validateSchema(updateTournamentSchema) para validar el b
 - **Método:**  POST
 - **Endpoint:** /api/tournaments/:id/submit
 - **Descripción:** Registra la puntuación obtenida por un chef en un torneo.
-   - **Parámetros:**
-      - id: Identificador del torneo.
+   - **Parámetros:** - id: Identificador del torneo.
 
 **Body de la solicitud:**
 
@@ -354,8 +352,6 @@ Validación: Se utiliza validateSchema(updateTournamentSchema) para validar el b
 **Ejemplo de solicitud:**
 
 ```bash
-Copy
-Edit
 `POST http://localhost:4000/api/tournaments/634aa0128f1b2c3d4e5f6792/submit`
 ```
 
@@ -385,22 +381,17 @@ Edit
 - **Método:** DELETE
 - **Endpoint:** /api/tournaments/:id
 - **Descripción:** Elimina un torneo del sistema.
-   - **Parámetros:**
-      - id: Identificador del torneo.
+   - **Parámetros:** - id: Identificador del torneo.
 
 **Ejemplo de solicitud:**
 
 ```bash
-Copy
-Edit
 `DELETE http://localhost:4000/api/tournaments/634aa0128f1b2c3d4e5f6792`
 ```
 
 **Ejemplo de respuesta:**
 
 ```json
-Copy
-Edit
 {
   "ok": true,
   "message": "Tournament deleted"

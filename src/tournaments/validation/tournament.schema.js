@@ -17,9 +17,9 @@ export const updateTournamentSchema = Yup.object().shape({
 });
 
 // Esquema de validación para el registro de un puntaje (score) en un torneo.
-export const submitScoreSchema = yup.object().shape({
-  chefId: yup.string().required("Chef ID is required"),
-  score: yup
+export const submitScoreSchema = Yup.object().shape({
+  chefId: Yup.string().required("Chef ID is required"),
+  score: Yup
     .number()
     .min(0, "Score must be at least 0")
     .max(100, "Score must be at most 100")
